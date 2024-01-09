@@ -26,3 +26,11 @@ input[type="text"]:focus {
 #alertmsg {
   color: var(--danger);
 }
+
+.delete:hover {
+  cursor: pointer;
+}
+
+.filtered {
+  display: none !important;
+}
