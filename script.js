@@ -1,5 +1,6 @@
 const addForm = document.querySelector(".add");
 const list = document.querySelector(".memos");
+const alertmsg = document.querySelector("#alertmsg");
 
 const saveMemo = (memotext) => {
   const html = `<li
@@ -9,10 +10,18 @@ const saveMemo = (memotext) => {
   </li>`;
 
   list.innerHTML += html;
+  addForm.add.value = "";
 };
 
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const memo = addForm.add.value;
-  saveMemo(memo);
+
+  //비어있는 메모 방지
+  if (memo) {
+    saveMemo(memo);
+    alertmsg.classList.add("hidden");
+  } else {
+    alertmsg.classList.remove("hidden");
+  }
 });
